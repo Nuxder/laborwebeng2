@@ -30,10 +30,11 @@ const zooAnimals = [
         age: 10,
         caretaker: 'Anna Schmidt',
         comments: 'Liebt es, Blätter von den Bäumen zu fressen.'
-    }, {
-        name: 'Reptil',
+    },
+    {
+        name: 'Dino',
         description: 'Ein Alter Gecko.',
-        image: '/images/reptil.jpg',
+        image: '/images/reptil.png',
         species: 'Reptil',
         origin: 'Pangea',
         age: 10000000,
