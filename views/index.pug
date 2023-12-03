@@ -1,9 +1,23 @@
+//- views/index.pug
+
 html
     head
         title Zoo App
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha384-wvfXpqpZZVQGK6TAh5V27SzxfrxDY9P3HYbI1PR7rPA5h/JvCk9VCBbd2U5dP+ry', crossorigin='anonymous')
+        link(rel='stylesheet', href='/styles/main.css')
     body
-        h1 Willkommen im Zoo!
-        each animal in zooAnimals
-            div
-                h2= animal.name
-                p= animal.description
+        .container
+            h1(class='mb-4') Willkommen im Zoo!
+            each animal in zooAnimals
+                .card
+                    img.card-img-top(src=animal.image, alt=animal.name)
+                    .card-body
+                        h2.card-title= animal.name
+                        p.card-text= animal.description
+                        ul.list-group
+                            li.list-group-item Gattung: #{animal.species}
+                            li.list-group-item Herkunft: #{animal.origin}
+                            li.list-group-item Alter: #{animal.age} Jahre
+                            li.list-group-item Betreuender Pfleger: #{animal.caretaker}
+                        p.card-text.comment Kommentare: #{animal.comments}

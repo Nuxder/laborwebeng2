@@ -1,23 +1,43 @@
+// index.js
+
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 3000;
 
-// Setze Pug als Template Engine
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
-// Definiere einige Beispieldaten für Zootiere
+app.use(express.static(path.join(__dirname, 'public')));
+
 const zooAnimals = [
-    { name: 'Löwe', description: 'Ein majestätischer Löwe.' },
-    { name: 'Giraffe', description: 'Eine hohe Giraffe mit langem Hals.' },
+    {
+        name: 'Löwe',
+        description: 'Ein majestätischer Löwe.',
+        image: '/images/lion.jpg',
+        species: 'Großkatze',
+        origin: 'Afrika',
+        age: 8,
+        caretaker: 'Max Mustermann',
+        comments: 'Sehr beeindruckendes Tier!'
+    },
+    {
+        name: 'Giraffe',
+        description: 'Eine hohe Giraffe mit langem Hals.',
+        image: '/images/giraffe.jpg',
+        species: 'Säugetier',
+        origin: 'Afrika',
+        age: 10,
+        caretaker: 'Anna Schmidt',
+        comments: 'Liebt es, Blätter von den Bäumen zu fressen.'
+    },
     // Füge weitere Zootiere hinzu...
 ];
 
-// Definiere eine Routenbehandlung für die Startseite
 app.get('/', (req, res) => {
     res.render('index', { zooAnimals });
 });
 
-// Starte den Server
 app.listen(port, () => {
     console.log(`Server läuft auf http://localhost:${port}`);
 });

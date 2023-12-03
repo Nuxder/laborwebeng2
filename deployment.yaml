@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoo-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: zoo-app
+  template:
+    metadata:
+      labels:
+        app: zoo-app
+    spec:
+      containers:
+      - name: zoo-app
+        image: nuxder/private_repo:latest
+        ports:
+        - containerPort: 3000
