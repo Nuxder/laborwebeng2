@@ -4,7 +4,7 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG NODE_VERSION=20.9.0
+ARG NODE_VERSION=18.14.2
 
 FROM node:${NODE_VERSION}-alpine
 
@@ -30,7 +30,7 @@ USER node
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 3000
+EXPOSE 80
 
 # Run the application.
 CMD node index.js

@@ -1,23 +1,46 @@
-//- views/index.pug
-
-html
+doctype html
+html(lang='en')
     head
-        title Zoo App
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', integrity='sha384-wvfXpqpZZVQGK6TAh5V27SzxfrxDY9P3HYbI1PR7rPA5h/JvCk9VCBbd2U5dP+ry', crossorigin='anonymous')
-        link(rel='stylesheet', href='/styles/main.css')
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        script(src='https://code.jquery.com/jquery-3.6.4.min.js')
+        script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+        title Zoo Application
+
     body
-        .container
-            h1(class='mb-4') Willkommen im Zoo!
-            each animal in zooAnimals
-                .card
-                    img.card-img-top(src=animal.image, alt=animal.name)
-                    .card-body
-                        h2.card-title= animal.name
-                        p.card-text= animal.description
-                        ul.list-group
-                            li.list-group-item Gattung: #{animal.species}
-                            li.list-group-item Herkunft: #{animal.origin}
-                            li.list-group-item Alter: #{animal.age} Jahre
-                            li.list-group-item Betreuender Pfleger: #{animal.caretaker}
-                        p.card-text.comment Kommentare: #{animal.comments}
+        .container-fluid
+            .mt-4
+                h1(class='text-center mb-4') Willkommen im Zoo!
+            .row
+                .col-md-3
+                    ul.list-group
+                        each animal in zooAnimals
+                            li.list-group-item
+                                a(href=`#tab-${animal.name}`, data-toggle='tab')= animal.name
+
+                .col-md-9
+                    .tab-content
+                        each animal in zooAnimals
+                            .tab-pane.fade(id=`tab-${animal.name}`, class=animal.name === 'Löwe' ? 'active show': '')
+                                .card
+                                    img.card-img-top(src=animal.image, alt=animal.name, style='height: 50%; width: auto;')
+                                    .card-body
+                                        h2.card-title= animal.name
+                                        p.card-text= animal.description
+                                        ul.list-group
+                                            li.list-group-item Gattung: #{animal.species}
+                                            li.list-group-item Herkunft: #{animal.origin}
+                                            li.list-group-item Alter: #{animal.age} Jahre
+                                            li.list-group-item Betreuender Pfleger: #{animal.caretaker}
+                                        p.card-text.comment Kommentare: #{animal.comments}
+        script.
+            $(document).ready(function(){
+                $('.list-group-item a').on('click', function(e){
+                    e.preventDefault();
+                    var tabId = $(this).attr('href');
+                    $('.tab-pane').removeClass('active show');
+                    $(tabId).addClass('active show');
+                });
+            });
