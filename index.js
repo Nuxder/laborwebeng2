@@ -41,6 +41,56 @@ const zooAnimals = [
         caretaker: 'Meteor',
         comments: 'Liebt es, seinesgleichen zu vertilgen, ausgestorben.'
     },
+    {
+        name: 'Panda',
+        description: 'Der wahre Panda.',
+        image: '/images/RedPanda.jpeg',
+        species: 'Säugetier',
+        origin: 'Asien',
+        age: 3,
+        caretaker: 'Desiigner',
+        comments: 'Betont immer gern, dass weiße Pandas fake sind.'
+    },
+    {
+        name: 'Rentier',
+        description: 'Rudolf und die Gang.',
+        image: '/images/Rudy.jpeg',
+        species: 'Säugetier',
+        origin: 'Europa',
+        age: 2023,
+        caretaker: 'Klaus vom Nordpol',
+        comments: 'Hat sich die Nase machen lassen.'
+    },
+    {
+        name: 'Schnabeltier',
+        description: 'Ein Schnabeltier? Perry das Schnabeltier?',
+        image: '/images/Schnabeltier.jpeg',
+        species: 'Säugetier',
+        origin: 'Australien',
+        age: 16,
+        caretaker: 'Phineas und Ferb',
+        comments: 'Doofenschmirtz fies sein ist unser Motto.'
+    },
+    {
+        name: 'Fledermaus',
+        description: 'Nicht die Fledermaus die wir verdient haben aber die Fledermaus die wir gerade brauchen.',
+        image: '/images/Fledermaus.jpeg',
+        species: 'Säugetier',
+        origin: 'Gotham',
+        age: 84,
+        caretaker: 'Alfred Pennyworth',
+        comments: 'Because I\'m Batman.'
+    },
+    {
+        name: 'Bär',
+        description: 'Ein kleiner Bär mit einem großen Traum.',
+        image: '/images/Baer.jpeg',
+        species: 'Säugetier',
+        origin: 'Zamonien',
+        age: 5,
+        caretaker: 'Walter Moers',
+        comments: 'Will auch mal Kapitän eines Segelschiffs sein wie sein Vater.'
+    },
     // Füge weitere Zootiere hinzu...
 ];
 
